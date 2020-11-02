@@ -6,7 +6,7 @@ urlpatterns = [
     #path('', views.welcome),     
     path('', include(('newtemas.urls','newtemas'))), 
     path('register', views.register),
-    path('accounts/login', views.login),
+    path('accounts/login/', views.login),
     path('logout', views.logout),
    
 ]
