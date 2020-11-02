@@ -64,4 +64,4 @@ def logout(request):
     #Hacemos el logout
     do_logout(request)
     # Redireccionamos a la portada
-    return redirect('/login')
+    return redirect('accounts/login/')
