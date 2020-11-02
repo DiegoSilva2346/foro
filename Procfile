@@ -1,0 +1,1 @@
+web: gunicorn blogsilva3.wsgi

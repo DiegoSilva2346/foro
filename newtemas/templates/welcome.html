@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>        
+<style>     
+ #temas{    
+    background-color:coral;       
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+ }      
+ #titulo{   
+    font-style: italic;   
+    font-family: Verdana, Geneva, Tahoma, sans-serif;     
+    font: size 15px; ;      
+    background-color: grey;        
+    text-align-last: center;
+ }
+#cuerpo{   
+   background-color: brown;    
+
+}       
+#pie{   
+   background-color: grey;    
+   text-align-last: center;
+}          
+#username{        
+   font-size: 30px;           
+ 
+
+}
+</style>
+<body id="cuerpo">
+   <h1 id="titulo">Área para miembros :FORO SILVA</h1>
+
+   {% block content %} 
+  <h2>  Bienvenido <strong id="username"  style="color: aliceblue;"><b>{{request.user.username}}</b></strong>, 
+    al foro SILVA.  <a href="/creartemas">Nuevo Tema</a>    <a href="/logout">Cerrar sesión</a></h2>            
+                  
+    <h3>Temas:</h1>         
+    {% for tema in temas %}        
+    <hr>       
+    <div id="temas">   
+      <h2>{{tema.titulo}}</h2>     
+      <p> {{tema.texto}}  </p>            
+      {%if tema.descripcion == request.user.username %} 
+         <footer>Autor:{{tema.descripcion}}  Fecha:{{tema.fecha}} </footer> <a href="/editar/{{tema.id}}">Editar</a> <a href="/eliminar/{{tema.id}}">Eliminar</a>     
+      {% else %}      
+         <footer>Autor:{{tema.descripcion}}  Fecha:{{tema.fecha}} </footer>       
+      {% endif %}   
+          
+    </div>         
+    <hr>
+    {% endfor %}            
+    {% endblock content %}    
+              
+ <footer id="pie"><a href="/creartemas">Nuevo Tema</a>    <a href="/logout">Cerrar sesión</a> <a href="/">Temas</a></footer>
+
+
+</body>
+</html>
+
