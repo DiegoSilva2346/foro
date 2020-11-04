@@ -6,7 +6,7 @@ from django.contrib.auth import login as do_login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Temas       
 from .formulario import FormularioCrearTema         
-import datetime
+from django.utils import timezone
   
 from django.contrib.auth.models import User   
 # Create your views here.             
@@ -46,7 +46,7 @@ def CrearTema(request):
          descripccion.descripcion=request.user.username      
          descripccion.titulo=request.POST["titulo"]    
          descripccion.texto=request.POST["texto"]           
-         descripccion.fecha=datetime.datetime.now()    
+         descripccion.fecha=timezone.now()  
          
             
         
