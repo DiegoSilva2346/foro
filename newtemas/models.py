@@ -1,7 +1,7 @@
 from django.db import models       
 from django.contrib.auth.models import User      
 from django.shortcuts import render,redirect          
-import datetime
+from django.utils import timezone
 
 # Create your models here.    
 lista_categorias=[(1,'pasteles'),(2,"Deportes"),(3,"Ciencia"),(4,"Clima"),(5,"Pandemia"),(6,'Programaciòn')]     
@@ -14,7 +14,7 @@ class Temas(models.Model):
      
     texto=models.TextField()      
     elige_tu_categoria=models.IntegerField(null=False,blank=True,choices=lista_categorias,default=2)        
-    fecha=models.DateTimeField(null=False,blank=True,default=datetime.datetime.now())           
+    fecha=models.DateTimeField(null=False,blank=True,default=timezone.now())           
     
 
     class Meta:    
