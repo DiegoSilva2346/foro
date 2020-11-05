@@ -46,9 +46,9 @@ def CrearTema(request):
          descripccion.descripcion=request.user.username      
          descripccion.titulo=request.POST["titulo"]    
          descripccion.texto=request.POST["texto"]           
-         descripccion.fecha=timezone.now()  
+         descripccion.fecha=request.POST['timezone']
+            #timezone.now()  
          
-            
         
          #if miformulario.is_valid():     
          if descripccion.titulo != "" and descripccion.texto != "":

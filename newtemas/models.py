@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User      
 from django.shortcuts import render,redirect          
 from django.utils import timezone
+import pytz
+
 
 # Create your models here.    
 lista_categorias=[(1,'pasteles'),(2,"Deportes"),(3,"Ciencia"),(4,"Clima"),(5,"Pandemia"),(6,'Programaciòn')]     
@@ -24,3 +26,5 @@ class Temas(models.Model):
         
         return self.titulo              
              
+
+
