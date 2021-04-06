@@ -46,7 +46,8 @@ def CrearTema(request):
          descripccion.descripcion=request.user.username      
          descripccion.titulo=request.POST["titulo"]    
          descripccion.texto=request.POST["texto"]           
-         descripccion.fecha=request.POST['timezone']
+         #descripccion.fecha=request.POST['timezone']         
+         descripccion.fecha=timezone.now()
             #timezone.now()  
          
         

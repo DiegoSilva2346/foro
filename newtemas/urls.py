@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path              
 from django.contrib.auth.decorators import login_required   
 from . import views
+from blogsilva3.settings import base   
 
 urlpatterns = [    
     path('', login_required(views.welcome),name="welcome"),           
@@ -9,4 +10,4 @@ urlpatterns = [
     path('editar/<int:id>', login_required(views.Editar),name="editar"), 
     path('eliminar/<int:id>', login_required(views.Eliminar),name="eliminar"),
    
-]
+]         

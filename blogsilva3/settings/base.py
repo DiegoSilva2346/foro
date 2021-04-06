@@ -10,11 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
+from pathlib import Path        
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-
+STATICFILES_DIRS = [
+BASE_DIR /"static","newtemas/static/newtemas/"
+]
+   
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -25,7 +29,7 @@ SECRET_KEY = 'tnj5opx0=hhqc$8$4lqy+bw1p+wr%078+a55+#ryb_!&u2-to)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*']
 
 
 # Application definition
@@ -56,8 +60,8 @@ ROOT_URLCONF = 'blogsilva3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': ["./newtemas/templates"],
+        'APP_DIRS':True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -68,8 +72,8 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'blogsilva3.wsgi.application'
+#Comentar la linea de abajo si quiero trabajar en local
+#WSGI_APPLICATION = 'blogsilva3.wsgi.application'
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -107,3 +111,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATICFILES_DIRS = [
+#BASE_DIR /"newtemas/templates",
+#]
+   
