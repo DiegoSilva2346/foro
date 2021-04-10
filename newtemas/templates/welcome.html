@@ -1,5 +1,6 @@
 
-{% load static %}
+{% load static %}            
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,12 +41,15 @@
 }
 </style>       
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">             
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>     
-<body id="cuerpo">          
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>              
+    
+<body id="cuerpo">             
+  {% block content2 %}              
+
    <div class="container-fluid portada" >
       
    </div>                     
-   
+   {%  endblock content2 %}
    
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
@@ -106,8 +110,9 @@
     {% for tema in temas %}        
     <hr>       
     <div id="temas">   
-      <h2>{{tema.titulo}}</h2>     
-      <p> {{tema.texto}}  </p>            
+      <a href="/temas/{{tema.id}}" class="nav-link  h-3" style="color: black ; font-size: 20px;"> <strong>{{tema.titulo}}</strong> </a>
+     <!-- <p> {{tema.texto}}  </p>    -->                       
+     <footer>{{tema.categoria}}</footer> 
       {%if tema.descripcion == request.user.username %} 
          <footer>Autor:{{tema.descripcion}}  Fecha:{{tema.fecha}} </footer> <a name="" id="" class="btn btn-primary mx-3" href="/editar/{{tema.id}}" role="button">Editar</a><a name="" id="" class="btn btn-danger" href="/eliminar/{{tema.id}}" role="button">Eliminar</a>    
       {% else %}      
@@ -126,7 +131,8 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
  
 
-<script src="{% static '/js/bootstrap.min.js' %}"></script>             
+<script src="{% static '/js/bootstrap.min.js' %}"></script>            
+<script src="{% static '/js/agregados.js' %}"></script>          
 
 </body>
 </html>

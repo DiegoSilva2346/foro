@@ -8,6 +8,7 @@ urlpatterns = [
     path('', login_required(views.welcome),name="welcome"),           
     path('creartemas/', login_required(views.CrearTema),name="CrearTema"),          
     path('editar/<int:id>', login_required(views.Editar),name="editar"), 
-    path('eliminar/<int:id>', login_required(views.Eliminar),name="eliminar"),
+    path('eliminar/<int:id>', login_required(views.Eliminar),name="eliminar"),            
+    path('temas/<int:id>',login_required(views.temas),name="temas")
    
 ]         

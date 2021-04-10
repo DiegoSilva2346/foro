@@ -1,0 +1,38 @@
+{% extends "welcome.html" %}         
+{% load static %}              
+{% block content2 %}       
+
+
+
+{% endblock content2 %}            
+{% block content %}                
+<style>          
+ #temas{    
+    background-color:coral;       
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+ }              
+
+</style>         
+ <div class="container my-5" id="temas">
+<h2>{{tema.titulo}}</h2>     
+ <p> {{tema.texto}}  </p>                        
+       
+ {%if tema.descripcion == request.user.username %} 
+    <footer>Autor:{{tema.descripcion}}  Fecha:{{tema.fecha}} </footer> <a name="" id="" class="btn btn-primary mx-3" href="/editar/{{tema.id}}" role="button">Editar</a><a name="" id="" class="btn btn-danger" href="/eliminar/{{tema.id}}" role="button">Eliminar</a>  <a name="buttom" id="responder" class="btn btn-warning mx-3"  role="button">Responder</a> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16" placeholder="Me gusta">
+      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/> 
+    </svg> 
+ {% else %}      
+    <footer>Autor:{{tema.descripcion}}  Fecha:{{tema.fecha}} </footer> <a name="buttom" id="responder" class="btn btn-warning mx-3"  role="button">Responder</a> <a href="#" class="btn"><i class=icon-home></i> Button</a>        
+ {% endif %}   
+<div   style="display: none;" id="respuesta">
+   <input class="form-control my-2" id="fila"  placeholder="Respuesta"  type="text"  style="background-color: black; color: white;" >     
+ <div class="col-3">
+    
+ <a class="btn btn-primary mx-3 my-3" role="button" id="cancelar"> Cancelar</a> <a href="" role="button" class="btn btn-primary mx-3"> Responder</a> 
+</div>
+</div>  
+</div>     
+
+
+
+{% endblock content %}

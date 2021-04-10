@@ -76,4 +76,9 @@ def Eliminar(request,id):
         
   tema=Temas.objects.get(id=id)       
   tema.delete()
-  return redirect("/")
+  return redirect("/")                   
+
+
+def temas(request,id):              
+  tema=Temas.objects.get(id=id)               
+  return render(request,"temas.html",{"tema":tema})  
